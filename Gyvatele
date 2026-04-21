@@ -1,0 +1,100 @@
+import turtle
+import time
+import random
+
+
+class Food:
+    def __init__(self):
+        self.obj = turtle.Turtle()
+        self.obj.speed(0)
+        self.obj.shape("circle")
+        self.obj.color("red")
+        self.obj.penup()
+        self.respawn()
+
+    def respawn(self):
+        
+        self.x = random.randint(-14, 14) * 20
+        self.y = random.randint(-14, 14) * 20
+        self.obj.goto(self.x, self.y)
+
+
+class Snake:
+    def __init__(self):
+        self.head = turtle.Turtle()
+        self.head.speed(0)
+        self.head.shape("square")
+        self.head.color("black")
+        self.head.penup()
+        self.head.goto(0, 0)
+        self.direction = "stop"
+        self.segments = []
+
+    def move(self):
+        
+        x, y = self.head.xcor(), self.head.ycor()
+
+        if self.direction == "up": y += 20
+        elif self.direction == "down": y -= 20
+        elif self.direction == "left": x -= 20
+        elif self.direction == "right": x += 20
+
+        self.head.goto(x, y)
+
+    def render_segments(self):
+        
+        for i in range(len(self.segments) - 1, 0, -1):
+            self.segments[i].goto(self.segments[i-1].pos())
+        
+        if len(self.segments) > 0:
+            self.segments[0].goto(self.head.pos())
+
+    def add_segment(self):
+        new_segment = turtle.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.color("grey")
+        new_segment.penup()
+        self.segments.append(new_segment)
+
+    
+    def go_up(self):
+        if self.direction != "down": self.direction = "up"
+    def go_down(self):
+        if self.direction != "up": self.direction = "down"
+    def go_left(self):
+        if self.direction != "right": self.direction = "left"
+    def go_right(self):
+        if self.direction != "left": self.direction = "right"
+
+
+def main():
+    win = turtle.Screen()
+    win.title("Gyvatėlė (W,A,S,D)")
+    win.bgcolor("white")
+    win.setup(width=600, height=600)
+    win.tracer(0) 
+    snake = Snake()
+    food = Food()
+
+    win.listen()
+    win.onkeypress(snake.go_up, "w")
+    win.onkeypress(snake.go_down, "s")
+    win.onkeypress(snake.go_left, "a")
+    win.onkeypress(snake.go_right, "d")
+
+    while True:
+        win.update()
+        
+        
+        if snake.head.distance(food.obj) < 20:
+            food.respawn()
+            snake.add_segment()
+
+        snake.render_segments() 
+        snake.move()           
+        
+        time.sleep(0.1)
+
+if __name__ == "__main__":
+    main()
