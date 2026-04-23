@@ -66,6 +66,15 @@ class Snake:
         if self.direction != "right": self.direction = "left"
     def go_right(self):
         if self.direction != "left": self.direction = "right"
+    
+    def reset(self):
+        time.sleep(1)
+        self.head.goto(0, 0)
+        self.direction = "stop"
+        
+        for segment in self.segments:
+            segment.goto(1000, 1000) 
+        self.segments.clear()
 
 
 def main():
@@ -77,6 +86,22 @@ def main():
     snake = Snake()
     food = Food()
 
+    score = 0
+    high_score = 0 
+
+    pen = turtle.Turtle()
+    pen.speed(0)
+    pen.color("black")
+    pen.penup()
+    pen.hideturtle()
+    pen.goto(0, 260)
+    
+    def update_scoreboard():
+        pen.clear()
+        pen.write(f"Taškai: {score}  Rekordas: {high_score}", align="center", font=("Courier", 24, "normal"))
+
+    update_scoreboard()
+
     win.listen()
     win.onkeypress(snake.go_up, "w")
     win.onkeypress(snake.go_down, "s")
@@ -85,14 +110,31 @@ def main():
 
     while True:
         win.update()
-        
-        
+
+        if (snake.head.xcor() > 290 or snake.head.xcor() < -290 or 
+            snake.head.ycor() > 290 or snake.head.ycor() < -290):
+            score = 0
+            update_scoreboard()
+            snake.reset()
+
+
         if snake.head.distance(food.obj) < 20:
             food.respawn()
             snake.add_segment()
+            score += 1
+            if score > high_score:
+                high_score = score
+            
+            update_scoreboard()
 
         snake.render_segments() 
-        snake.move()           
+        snake.move() 
+
+        for segment in snake.segments:
+            if segment.distance(snake.head) < 20:
+                score = 0
+                update_scoreboard()
+                snake.reset()
         
         time.sleep(0.1)
 
