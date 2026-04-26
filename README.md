@@ -19,7 +19,7 @@
 
 ## 2. Analizė (Body/Analysis)
 
-### 4 OOP pyplys (4 OOP Pillars)Programa įgyvendina visus keturis pagrindinius objektinio programavimo principus:
+### 4 OOP Pillars Programa įgyvendina visus keturis pagrindinius objektinio programavimo principus:
 
 1.  **Abstrakcija (Abstraction):** Naudojama `GameObject` klasė (paveldinti iš `ABC`), kuri apibrėžia bendrą struktūrą ir privalomą `reset_position` metodą visiems žaidimo objektams.
 2.  **Paveldėjimas (Inheritance):** Klasės `Food` ir `SnakeSegment` paveldi savybes iš bazinės `GameObject` klasės, taip išvengiant kodo dubliavimo.
