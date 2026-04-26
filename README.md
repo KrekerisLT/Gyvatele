@@ -11,7 +11,7 @@ Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Pyth
 **Kaip paleisti programą:**  
 1. Įsitikinkite, kad turite įdiegtą **Python 3**.  
 2. Atsisiųskite projekto failus į vieną aplanką.  
-3. Terminale paleiskite komandą:
+3. Terminale paleiskite komandą nurodant failo aplanko vieta:
    ```bash
    python failo_pavadinimas.py
    ```
