@@ -13,6 +13,9 @@ Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Pyth
 2. Atsisiųskite projekto failus į vieną aplanką.  
 3. Terminale paleiskite komandą nurodant failo aplanko vieta:
    ```bash
+   cd kelias/iki/jūsų/aplanko
+   ```
+   ```bash
    python failo_pavadinimas.py
    ```
 **Arba** 
