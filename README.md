@@ -1,9 +1,9 @@
 # 🐍 Gyvatėlės žaidimas (OOP Coursework)
 
 ## 1. Įvadas (Introduction)
-**Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas[cite: 4, 75].
+**Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas.
 
-**Apie programą:** Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Python `turtle` biblioteką[cite: 36]. Žaidimo tikslas – valdyti gyvatėlę, rinkti maistą ir siekti aukščiausio rezultato, nesusiduriant su rėmeliu ar pačia gyvatėle.
+**Apie programą:** Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Python `turtle` biblioteką. Žaidimo tikslas – valdyti gyvatėlę, rinkti maistą ir siekti aukščiausio rezultato, nesusiduriant su rėmeliu ar pačia gyvatėle.
 
 **Kaip paleisti programą:**
 1. Įsitikinkite, kad turite įdiegtą **Python 3**.
@@ -49,6 +49,6 @@ Programa naudoja `highscore.txt` failą duomenų importui ir eksportui:
 * **Iššūkiai:** Didžiausias iššūkis buvo tinkamas gyvatėlės segmentų pozicionavimo algoritmas, užtikrinantis sklandų sekimą paskui galvą.
 
 ### Išvados
-* [cite_start]Darbas pasiekė užsibrėžtą tikslą – pademonstruoti OOP principų praktinį pritaikymą žaidimų kūrime[cite: 78].
-* [cite_start]Sukurta modulinė struktūra leidžia lengvai papildyti žaidimą naujomis funkcijomis[cite: 78].
-* [cite_start]**Perspektyvos:** Ateityje būtų galima pridėti sudėtingumo lygius, kliūtis arba spalvų temas[cite: 78].
+* Darbas pasiekė užsibrėžtą tikslą – pademonstruoti OOP principų praktinį pritaikymą žaidimų kūrime.
+* Sukurta modulinė struktūra leidžia lengvai papildyti žaidimą naujomis funkcijomis.
+* **Perspektyvos:** Ateityje būtų galima pridėti sudėtingumo lygius, kliūtis arba spalvų temas.
