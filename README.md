@@ -1,4 +1,4 @@
-# 🐍 Gyvatėlės žaidimas (OOP Coursework)
+# Gyvatėlės žaidimas (OOP Coursework)
 
 ## 1. Įvadas (Introduction)
 **Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas.
