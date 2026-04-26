@@ -16,7 +16,7 @@ Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Pyth
    cd kelias/iki/jūsų/aplanko
    ```
    ```bash
-   python main.py
+   py main.py
    ```
 **Arba** 
 1. Atsiusti projekto failus į vieną aplanką.
