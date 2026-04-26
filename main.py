@@ -8,7 +8,6 @@ FOLDER_PATH = os.path.dirname(os.path.realpath(__file__))
 FILE_PATH = os.path.join(FOLDER_PATH, "highscore.txt")
 
 class ScoreManager:
-    """Singleton pattern užtikrina, kad žaidime būtų tik vienas taškų valdytojas."""
     _instance = None
 
     def __new__(cls):
@@ -24,7 +23,6 @@ class ScoreManager:
             self.__initialized = True
 
     def __load_high_score(self):
-        """Skaito iš failo (File I/O)."""
         if os.path.exists(FILE_PATH):
             with open(FILE_PATH, "r") as f:
                 try:
@@ -34,7 +32,6 @@ class ScoreManager:
         return 0
 
     def __save_high_score(self):
-        """Rašo į failą (File I/O)."""
         with open(FILE_PATH, "w") as f:
             f.write(str(self.__high_score))
 
@@ -54,7 +51,6 @@ class ScoreManager:
         self.__score = 0
 
 class GameObject(ABC):
-    """Abstrakti bazinė klasė žaidimo objektams."""
     def __init__(self, shape, color):
         self.obj = turtle.Turtle()
         self.obj.speed(0)
@@ -64,13 +60,12 @@ class GameObject(ABC):
 
     @abstractmethod
     def reset_position(self):
-        """Abstraktus metodas, kurį privalo implementuoti vaikinės klasės."""
         pass
 
 
 class Food(GameObject):
     def __init__(self):
-        super().__init__("circle", "#E74C3C")
+        super().__init__("circle", "red")
         self.obj.shapesize(stretch_wid=0.8, stretch_len=0.8)
         self.reset_position()
 
@@ -144,7 +139,7 @@ class Snake:
 
 
 def draw_border():
-    """Nupiešia žaidimo lauko rėmelį."""
+
     border_pen = turtle.Turtle()
     border_pen.speed(0)
     border_pen.color("black") 
