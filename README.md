@@ -1,9 +1,9 @@
 # 🐍 Gyvatėlės žaidimas (OOP Coursework)
 
 ## 1. Įvadas (Introduction)
-[cite_start]**Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas[cite: 4, 75].
+**Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas[cite: 4, 75].
 
-[cite_start]**Apie programą:** Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Python `turtle` biblioteką[cite: 36]. Žaidimo tikslas – valdyti gyvatėlę, rinkti maistą ir siekti aukščiausio rezultato, nesusiduriant su rėmeliu ar pačia gyvatėle.
+**Apie programą:** Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Python `turtle` biblioteką[cite: 36]. Žaidimo tikslas – valdyti gyvatėlę, rinkti maistą ir siekti aukščiausio rezultato, nesusiduriant su rėmeliu ar pačia gyvatėle.
 
 **Kaip paleisti programą:**
 1. Įsitikinkite, kad turite įdiegtą **Python 3**.
@@ -19,34 +19,33 @@
 
 ## 2. Analizė (Body/Analysis)
 
-### 4 OOP pyplys (4 OOP Pillars)
-[cite_start]Programa įgyvendina visus keturis pagrindinius objektinio programavimo principus:
+### 4 OOP pyplys (4 OOP Pillars)Programa įgyvendina visus keturis pagrindinius objektinio programavimo principus:
 
-1.  [cite_start]**Abstrakcija (Abstraction):** Naudojama `GameObject` klasė (paveldinti iš `ABC`), kuri apibrėžia bendrą struktūrą ir privalomą `reset_position` metodą visiems žaidimo objektams.
-2.  [cite_start]**Paveldėjimas (Inheritance):** Klasės `Food` ir `SnakeSegment` paveldi savybes iš bazinės `GameObject` klasės, taip išvengiant kodo dubliavimo.
-3.  [cite_start]**Enkapsuliacija (Encapsulation):** Jautrūs duomenys, tokie kaip gyvatėlės kryptis (`__direction`) ar taškų skaičius (`__score`), yra paslėpti naudojant privačius atributus, pasiekiamus tik per tam skirtus metodus.
-4.  [cite_start]**Polimorfizmas (Polymorphism):** Metodas `reset_position()` skirtingose klasėse veikia skirtingai: maistas perkeliamas į atsitiktinę vietą, o segmentai – už ekrano ribų.
+1.  **Abstrakcija (Abstraction):** Naudojama `GameObject` klasė (paveldinti iš `ABC`), kuri apibrėžia bendrą struktūrą ir privalomą `reset_position` metodą visiems žaidimo objektams.
+2.  **Paveldėjimas (Inheritance):** Klasės `Food` ir `SnakeSegment` paveldi savybes iš bazinės `GameObject` klasės, taip išvengiant kodo dubliavimo.
+3.  **Enkapsuliacija (Encapsulation):** Jautrūs duomenys, tokie kaip gyvatėlės kryptis (`__direction`) ar taškų skaičius (`__score`), yra paslėpti naudojant privačius atributus, pasiekiamus tik per tam skirtus metodus.
+4. **Polimorfizmas (Polymorphism):** Metodas `reset_position()` skirtingose klasėse veikia skirtingai: maistas perkeliamas į atsitiktinę vietą, o segmentai – už ekrano ribų.
 
 ### Dizaino modelis (Design Pattern)
-[cite_start]Projekte pritaikytas **Singleton** (Vieneto) modelis `ScoreManager` klasėje. [cite_start]Tai užtikrina, kad žaidime egzistuotų tik vienas centralizuotas taškų valdymo taškas, atsakingas už rezultatų saugojimą ir failų valdymą.
+Projekte pritaikytas **Singleton** (Vieneto) modelis `ScoreManager` klasėje. Tai užtikrina, kad žaidime egzistuotų tik vienas centralizuotas taškų valdymo taškas, atsakingas už rezultatų saugojimą ir failų valdymą.
 
 ### Kompozicija ir Agregacija
 * **Kompozicija:** `Snake` klasė tiesiogiai valdo `SnakeSegment` objektų sąrašą.
-* [cite_start]**Agregacija:** Pagrindinėje `main()` funkcijoje skirtingi objektai (`Snake`, `Food`, `ScoreManager`) sujungiami į bendrą sistemą.
+* **Agregacija:** Pagrindinėje `main()` funkcijoje skirtingi objektai (`Snake`, `Food`, `ScoreManager`) sujungiami į bendrą sistemą.
 
 ### Darbas su failais (File I/O)
-[cite_start]Programa naudoja `highscore.txt` failą duomenų importui ir eksportui:
+Programa naudoja `highscore.txt` failą duomenų importui ir eksportui:
 * **Skaitymas:** Pradedant žaidimą, įkeliamas geriausias rezultatas.
-* [cite_start]**Rašymas:** Pasiekus naują rekordą, jis automatiškai įrašomas į failą, užtikrinant duomenų išlikimą.
+* **Rašymas:** Pasiekus naują rekordą, jis automatiškai įrašomas į failą, užtikrinant duomenų išlikimą.
 
 ---
 
 ## 3. Rezultatai ir išvados (Results and Summary)
 
 ### Rezultatai
-* [cite_start]Sukurta veikianti programa, atitinkanti visus funkcinius reikalavimus.
-* [cite_start]Įgyvendinta automatinė rekordų sistema su failų saugojimu.
-* [cite_start]Kodas parašytas laikantis **PEP8** stiliaus gairių.
+* Sukurta veikianti programa, atitinkanti visus funkcinius reikalavimus.
+* Įgyvendinta automatinė rekordų sistema su failų saugojimu.
+* Kodas parašytas laikantis **PEP8** stiliaus gairių.
 * **Iššūkiai:** Didžiausias iššūkis buvo tinkamas gyvatėlės segmentų pozicionavimo algoritmas, užtikrinantis sklandų sekimą paskui galvą.
 
 ### Išvados
