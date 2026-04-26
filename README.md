@@ -82,10 +82,9 @@ def __new__(cls):
 
 ---
 
-### 2.3. Kompozicija ir Agregacija
+### 2.3. Kompozicija
 
 - **Kompozicija:** `Snake` klasė valdo `SnakeSegment` objektų sąrašą.  
-- **Agregacija:** `main()` funkcijoje sujungiami `Snake`, `Food`, `ScoreManager` objektai.
 
 ---
 
