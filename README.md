@@ -1,2 +1,55 @@
-OOP Coursework: Gyvatėlės žaidimas (Snake Game)1. Įvadas (Introduction)a. Kas yra jūsų aplikacija?
-Tai interaktyvus „Gyvatėlės“ žaidimas, sukurtas Python kalba naudojant turtle biblioteką. Programos tikslas – pademonstruoti objektinio programavimo principų taikymą, duomenų valdymą išoriniuose failuose ir kodo testavimą.b. Kaip paleisti programą?Įsitikinkite, kad turite įdiegtą Python 3.Atsisiųskite main.py ir test_game.py failus.Terminale paleiskite komandą: python main.py.c. Kaip naudotis programa?Naudokite W, A, S, D klavišus gyvatėlės krypčiai valdyti.Rinkite maistą (raudoni apskritimai), kad augtumėte ir gautumėte taškų.Venkite atsitrenkimo į sienas ar savo uodegą.Geriausias rezultatas automatiškai išsaugomas faile highscore.txt.2. Analizė (Body/Analysis)4 OOP pilarai Abstrakcija (Abstraction): Sukurta klasė GameObject, paveldimą iš ABC. Ji paslepia turtle objekto kūrimo detales ir reikalauja, kad visi subjektai turėtų reset_position() metodą.Paveldėjimas (Inheritance): Klasės Food ir SnakeSegment paveldi bendras savybes iš GameObject, taip sumažinant kodo dubliavimąsi.Polimorfizmas (Polymorphism): Metodas reset_position() skirtingose klasėse veikia kitaip: maistas perkeliamas atsitiktinai, o uodegos segmentas – už ekrano ribų.Inkapsuliacija (Encapsulation): ScoreManager klasėje taškai (__score) ir rekordas (__high_score) yra privatūs, pasiekiami tik per tam skirtus metodus.Dizaino šablonas (Design Pattern) Projekte pritaikytas Singleton šablonas klasėje ScoreManager. Tai užtikrina, kad žaidime egzistuos tik viena taškų valdymo instancija, apsauganti nuo duomenų nesutapimų tarp skirtingų žaidimo dalių.Kompozicija ir agregacija Klasė Snake naudoja kompoziciją – ji valdo SnakeSegment objektų sąrašą. Be Snake klasės egzemplioriaus uodegos segmentai neturi prasmės, todėl jų gyvavimo ciklas yra tiesiogiai susietas su pagrindiniu gyvatėlės objektu.3. Rezultatai ir išvados (Results and Summary) a. RezultataiPrograma sėkmingai įgyvendina visus funkcinius reikalavimus: objektų valdymą, taškų skaičiavimą ir rekordų išsaugojimą.Didžiausias iššūkis buvo suderinti gyvatėlės uodegos judėjimą, kad kiekvienas segmentas tiksliai sektų priekyje esantį.b. IšvadosDarbas parodė, kad OOP principai leidžia lengvai valdyti sudėtingas žaidimo būsenas ir objektų sąveikas.Sukurtas stabilus žaidimas su veikiančia duomenų saugojimo sistema.c. Aplikacijos išplėtimasProgramą galima papildyti skirtingais sudėtingumo lygiais.Galima įvesti „super-maistą“, kuris suteiktų laikiną pagreitį arba papildomų taškų.Galima pridėti kliūtis žaidimo lauko viduryje.
+# 🐍 Gyvatėlės žaidimas (OOP Coursework)
+
+## 1. Įvadas (Introduction)
+[cite_start]**Darbo tikslas:** Sukurti objektiniu programavimu (OOP) pagrįstą taikomąją programą, demonstruojančią pagrindinius programinės įrangos projektavimo principus ir švaraus kodo praktikas[cite: 4, 75].
+
+[cite_start]**Apie programą:** Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Python `turtle` biblioteką[cite: 36]. Žaidimo tikslas – valdyti gyvatėlę, rinkti maistą ir siekti aukščiausio rezultato, nesusiduriant su rėmeliu ar pačia gyvatėle.
+
+**Kaip paleisti programą:**
+1. Įsitikinkite, kad turite įdiegtą **Python 3**.
+2. Atsisiųskite projekto failus į vieną aplanką.
+3. Terminale paleiskite komandą: `python pagrindinis_failas.py` (pakeiskite į savo failo pavadinimą).
+
+**Kaip naudotis programa:**
+* Naudokite klavišus **W, A, S, D** gyvatėlės krypčiai keisti.
+* Kiekvienas suvalgytas maistas prideda tašką ir pailgina gyvatėlę.
+* Žaidimas baigiasi atsitrenkus į sieną arba į savo uodegą.
+
+---
+
+## 2. Analizė (Body/Analysis)
+
+### 4 OOP pyplys (4 OOP Pillars)
+[cite_start]Programa įgyvendina visus keturis pagrindinius objektinio programavimo principus:
+
+1.  [cite_start]**Abstrakcija (Abstraction):** Naudojama `GameObject` klasė (paveldinti iš `ABC`), kuri apibrėžia bendrą struktūrą ir privalomą `reset_position` metodą visiems žaidimo objektams.
+2.  [cite_start]**Paveldėjimas (Inheritance):** Klasės `Food` ir `SnakeSegment` paveldi savybes iš bazinės `GameObject` klasės, taip išvengiant kodo dubliavimo.
+3.  [cite_start]**Enkapsuliacija (Encapsulation):** Jautrūs duomenys, tokie kaip gyvatėlės kryptis (`__direction`) ar taškų skaičius (`__score`), yra paslėpti naudojant privačius atributus, pasiekiamus tik per tam skirtus metodus.
+4.  [cite_start]**Polimorfizmas (Polymorphism):** Metodas `reset_position()` skirtingose klasėse veikia skirtingai: maistas perkeliamas į atsitiktinę vietą, o segmentai – už ekrano ribų.
+
+### Dizaino modelis (Design Pattern)
+[cite_start]Projekte pritaikytas **Singleton** (Vieneto) modelis `ScoreManager` klasėje. [cite_start]Tai užtikrina, kad žaidime egzistuotų tik vienas centralizuotas taškų valdymo taškas, atsakingas už rezultatų saugojimą ir failų valdymą.
+
+### Kompozicija ir Agregacija
+* **Kompozicija:** `Snake` klasė tiesiogiai valdo `SnakeSegment` objektų sąrašą.
+* [cite_start]**Agregacija:** Pagrindinėje `main()` funkcijoje skirtingi objektai (`Snake`, `Food`, `ScoreManager`) sujungiami į bendrą sistemą.
+
+### Darbas su failais (File I/O)
+[cite_start]Programa naudoja `highscore.txt` failą duomenų importui ir eksportui:
+* **Skaitymas:** Pradedant žaidimą, įkeliamas geriausias rezultatas.
+* [cite_start]**Rašymas:** Pasiekus naują rekordą, jis automatiškai įrašomas į failą, užtikrinant duomenų išlikimą.
+
+---
+
+## 3. Rezultatai ir išvados (Results and Summary)
+
+### Rezultatai
+* [cite_start]Sukurta veikianti programa, atitinkanti visus funkcinius reikalavimus.
+* [cite_start]Įgyvendinta automatinė rekordų sistema su failų saugojimu.
+* [cite_start]Kodas parašytas laikantis **PEP8** stiliaus gairių.
+* **Iššūkiai:** Didžiausias iššūkis buvo tinkamas gyvatėlės segmentų pozicionavimo algoritmas, užtikrinantis sklandų sekimą paskui galvą.
+
+### Išvados
+* [cite_start]Darbas pasiekė užsibrėžtą tikslą – pademonstruoti OOP principų praktinį pritaikymą žaidimų kūrime[cite: 78].
+* [cite_start]Sukurta modulinė struktūra leidžia lengvai papildyti žaidimą naujomis funkcijomis[cite: 78].
+* [cite_start]**Perspektyvos:** Ateityje būtų galima pridėti sudėtingumo lygius, kliūtis arba spalvų temas[cite: 78].
