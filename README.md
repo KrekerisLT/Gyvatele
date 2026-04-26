@@ -1,4 +1,4 @@
-# 🐍 Gyvatėlės žaidimas (OOP Coursework 2026)
+#  Gyvatėlės žaidimas (OOP Coursework 2026)
 
 ## 1. Įvadas (Introduction)
 
@@ -68,7 +68,7 @@ Metodas `reset_position()` realizuotas skirtingai `Food` ir `SnakeSegment` klas�
 
 ### 2.2. Dizaino modelis (Design Pattern)
 
-Projekte pritaikytas **Singleton** (Vieneto) modelis `ScoreManager` klasėje.
+Projekte pritaikytas **Singleton** modelis `ScoreManager` klasėje.
 
 **Kodėl pasirinkta:**  
 Tai užtikrina, kad visoje programoje egzistuotų tik vienas taškų valdytojas.
