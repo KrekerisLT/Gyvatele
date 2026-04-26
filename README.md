@@ -15,6 +15,10 @@ Tai klasikinio „Gyvatėlės“ žaidimo interpretacija, sukurta naudojant Pyth
    ```bash
    python failo_pavadinimas.py
    ```
+*Arba*
+1. Atsiusti projekto failus į vieną aplanką.
+2. Per VisualStudio atidaryti ``main.py``
+3. Paleisti koda per VisualStudio
 
 **Kaip naudotis programa:**  
 - Naudokite klavišus **W, A, S, D** gyvatėlės krypčiai keisti.  
